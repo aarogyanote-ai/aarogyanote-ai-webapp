@@ -1,5 +1,7 @@
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import Image from "next/image";
+import TrackedButton from "@/components/TrackedButton";
 
 export default function Home() {
   return (
@@ -19,8 +21,10 @@ export default function Home() {
               specifically for healthcare professionals in India.
             </p>
             <div className="flex justify-center">
-              <a
+              <TrackedButton
                 href="https://play.google.com/store/apps/details?id=com.aarogyanote.ai"
+                buttonId="download_app_hero"
+                location="hero"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors duration-200 inline-flex items-center gap-2"
@@ -33,7 +37,7 @@ export default function Home() {
                   <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
                 </svg>
                 Download App
-              </a>
+              </TrackedButton>
             </div>
           </div>
         </div>
@@ -217,8 +221,10 @@ export default function Home() {
             Aarogya Note AI to streamline their documentation workflow.
           </p>
           <div className="flex justify-center">
-            <a
+            <TrackedButton
               href="https://play.google.com/store/apps/details?id=com.aarogyanote.ai"
+              buttonId="download_app_cta"
+              location="cta"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white text-blue-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors duration-200 inline-flex items-center gap-2"
@@ -227,84 +233,12 @@ export default function Home() {
                 <path d="M3,20.5V3.5C3,2.91 3.34,2.39 3.84,2.15L13.69,12L3.84,21.85C3.34,21.6 3,21.09 3,20.5M16.81,15.12L6.05,21.34L14.54,12.85L16.81,15.12M20.16,10.81C20.5,11.08 20.75,11.5 20.75,12C20.75,12.5 20.53,12.9 20.18,13.18L17.89,14.5L15.39,12L17.89,9.5L20.16,10.81M6.05,2.66L16.81,8.88L14.54,11.15L6.05,2.66Z" />
               </svg>
               Download App
-            </a>
+            </TrackedButton>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <Image
-                  src="/logo.png"
-                  alt="Aarogya Note AI Logo"
-                  width={32}
-                  height={32}
-                  className="w-8 h-8"
-                />
-                <span className="text-lg font-bold">Aarogya Note AI</span>
-              </div>
-              <p className="text-gray-400">
-                AI-powered medical documentation platform designed for
-                healthcare professionals in India.
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Support</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <a
-                    href="mailto:support@aarogyanote.ai"
-                    className="hover:text-white transition-colors"
-                  >
-                    Contact Us
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.aarogyanote.ai"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-white transition-colors"
-                  >
-                    Download App
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Legal</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <a
-                    href="/privacy-policy"
-                    className="hover:text-white transition-colors"
-                  >
-                    Privacy Policy
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="/terms"
-                    className="hover:text-white transition-colors"
-                  >
-                    Terms & Conditions
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2025 Aarogya Note AI. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

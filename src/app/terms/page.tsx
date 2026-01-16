@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions - Aarogya Note AI",
@@ -182,6 +183,8 @@ export default function TermsConditions() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

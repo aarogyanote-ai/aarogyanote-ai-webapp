@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Privacy Policy - Aarogya Note AI",
@@ -275,6 +276,8 @@ export default function PrivacyPolicy() {
           </div>
         </div>
       </div>
+
+      <Footer />
     </div>
   );
 }

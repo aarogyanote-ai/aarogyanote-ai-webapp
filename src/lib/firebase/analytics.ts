@@ -60,6 +60,10 @@ export function logAnalyticsEvent(
 ): void {
   const analytics = getAnalyticsInstance();
   if (!analytics) {
+    // In development, log what would be tracked (optional, for debugging)
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`[Analytics] Would track: ${eventName}`, eventParams);
+    }
     return;
   }
 
@@ -101,5 +105,41 @@ export function logButtonClick(buttonName: string, location?: string): void {
 export function logDownload(fileName: string): void {
   logAnalyticsEvent('file_download', {
     file_name: fileName,
+  });
+}
+
+/**
+ * Log a link click event
+ * @param linkText - Text content of the link
+ * @param linkUrl - URL the link points to
+ * @param location - Optional location/context where the link was clicked
+ */
+export function logLinkClick(
+  linkText: string,
+  linkUrl: string,
+  location?: string
+): void {
+  logAnalyticsEvent('link_click', {
+    link_text: linkText,
+    link_url: linkUrl,
+    location: location || 'unknown',
+  });
+}
+
+/**
+ * Log an email link click event
+ * @param emailAddress - Email address from the mailto: link
+ * @param linkText - Text content of the link
+ * @param location - Optional location/context where the link was clicked
+ */
+export function logEmailClick(
+  emailAddress: string,
+  linkText: string,
+  location?: string
+): void {
+  logAnalyticsEvent('email_click', {
+    email_address: emailAddress,
+    link_text: linkText,
+    location: location || 'unknown',
   });
 }

@@ -10,6 +10,8 @@ import {
   logPageView,
   logButtonClick,
   logDownload,
+  logLinkClick,
+  logEmailClick,
 } from '@/lib/firebase/analytics';
 
 export interface UseAnalyticsReturn {
@@ -17,6 +19,12 @@ export interface UseAnalyticsReturn {
   trackPageView: (path: string, title?: string) => void;
   trackButtonClick: (buttonName: string, location?: string) => void;
   trackDownload: (fileName: string) => void;
+  trackLinkClick: (linkText: string, linkUrl: string, location?: string) => void;
+  trackEmailClick: (
+    emailAddress: string,
+    linkText: string,
+    location?: string
+  ) => void;
 }
 
 /**
@@ -36,6 +44,16 @@ export function useAnalytics(): UseAnalyticsReturn {
     },
     trackDownload: (fileName: string) => {
       logDownload(fileName);
+    },
+    trackLinkClick: (linkText: string, linkUrl: string, location?: string) => {
+      logLinkClick(linkText, linkUrl, location);
+    },
+    trackEmailClick: (
+      emailAddress: string,
+      linkText: string,
+      location?: string
+    ) => {
+      logEmailClick(emailAddress, linkText, location);
     },
   };
 }
